@@ -22,38 +22,41 @@ namespace TjuvochPolis
 
         }
 
-        public void visaFangelse() 
+        public string visaFangelse() 
         {
+            string toReturn = "";
+    
             for (int i = 0; i < Cols - 3; i++)
             {
                 if (i == 3)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write("Prison");
-                    Console.ResetColor();
+                    // Console.ForegroundColor = ConsoleColor.Red;
+                    toReturn += "Prison";
+                    // Console.ResetColor();
                 }
                 else
                 {
-                    Console.Write('x');
+                    toReturn += 'x';
                 }
             }
-            Console.WriteLine();
+            toReturn += "\n";
 
             for (int i = 0; i < Rows; i++)
             {
-                Console.Write('x');
+                toReturn += 'x';
                 for (int j = 0; j < Cols; j++)
                 {
-                    Console.Write(fangelse[i, j]);
+                    toReturn += fangelse[i, j];
                 }
-                Console.Write('x');
-                Console.WriteLine();
+                toReturn += 'x';
+                toReturn += "\n";
             }
             for (int i = 0; i < Cols + 2; i++)
             {
-                Console.Write('x');
+                toReturn += 'x';
             }
-            Console.WriteLine();
+            toReturn += "\n";
+            return toReturn;
         }
 
 

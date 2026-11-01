@@ -20,38 +20,44 @@ namespace TjuvochPolis
 
         }
 
-        public void visaStad()
+        public string visaStad()
         {
-            for (int i = 0; i < 99; i++)
+
+            string toReturn = "";
+
+            for (int i
+                = 0; i < 99; i++)
             {
                 if (i == 2)
                 {
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write("City");
-                    Console.ResetColor();
+
+                    // Console.ForegroundColor = ConsoleColor.Green;
+                    toReturn += "City";
+                    // Console.ResetColor();
                 }
                 else
                 {
-                    Console.Write('*');
+                    toReturn += '*';
                 }
             }
-            Console.WriteLine();
+            toReturn += "\n";
 
             for (int i = 0; i < 25; i++)
             {
-                Console.Write('*');
+                toReturn += '*';
                 for (int j = 0; j < 100; j++)
                 {
-                    Console.Write(stad[i, j]);
+                    toReturn += stad[i, j];
                 }
-                Console.Write('*');
-                Console.WriteLine();
+                toReturn += '*';
+                toReturn += "\n";
             }
             for (int i = 0; i < 102; i++)
             {
-                Console.Write('*');
+                toReturn += '*';
             }
-            Console.WriteLine();
+            toReturn += "\n";
+            return toReturn;
         }
 
 

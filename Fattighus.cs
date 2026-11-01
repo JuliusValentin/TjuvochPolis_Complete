@@ -20,38 +20,41 @@ namespace TjuvochPolis
             }
         }
 
-        public void visaFattighus() 
+        public string visaFattighus() 
         {
+            string toReturn = "";
+
             for (int i = 0; i < Cols - 7; i++)
             {
                 if (i == 3)
                 {
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write("Poor House");
-                    Console.ResetColor();
+                    // Console.ForegroundColor = ConsoleColor.Yellow;
+                    toReturn += "Poor House";
+                    // Console.ResetColor();
                 }
                 else
                 {
-                    Console.Write('*');
+                    toReturn += '*';
                 }
             }
-            Console.WriteLine();
+            toReturn += "\n";
 
             for (int i = 0; i < Rows; i++)
             {
-                Console.Write('*');
+                toReturn += '*';
                 for (int j = 0; j < Cols; j++)
                 {
-                    Console.Write(fattighus[i, j]);
+                    toReturn += fattighus[i, j];
                 }
-                Console.Write('*');
-                Console.WriteLine();
+                toReturn += '*';
+                toReturn += "\n";
             }
             for (int i = 0; i < Cols + 2; i++)
             {
-                Console.Write('*');
+                toReturn += '*';
             }
-            Console.WriteLine();
+            toReturn += "\n";
+            return toReturn;
         }
 
     }

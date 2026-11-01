@@ -13,6 +13,7 @@ namespace TjuvochPolis
         static readonly Stad stad = new Stad();
         static readonly Fangelse fangelse = new Fangelse();
         static readonly Fattighus fattighus = new Fattighus();
+        static readonly MyView myView = new MyView();
 
         static void Main(string[] args)
         {
@@ -137,14 +138,11 @@ namespace TjuvochPolis
         {
             Console.SetCursorPosition(0, 0);
             stad.updateStad(personer);
-            stad.visaStad();
-            fangelse.visaFangelse();
-            fattighus.visaFattighus();
+            string stadString = stad.visaStad();
+            string fangelseString = fangelse.visaFangelse();
+            string fattighusString = fattighus.visaFattighus();
 
-            int total = personer.Count(p => p.Typ == PersonTyp.Polis) + personer.Count(p => p.Typ == PersonTyp.Tjuv) + personer.Count(p => p.Typ == PersonTyp.Medborgare);
-            Console.WriteLine("P = Polis | T = Tjuv | M = Medborgare | * = Flera på samma ruta");
-            Console.WriteLine($"Polis:{personer.Count(p => p.Typ == PersonTyp.Polis)}\t Tjuvar:{personer.Count(p => p.Typ == PersonTyp.Tjuv)}\t Medborgare:{personer.Count(p => p.Typ == PersonTyp.Medborgare)}\t Totala personer:{total}");
-            Console.WriteLine("Tryck Ctrl+C för att avsluta.");
+            myView.Render(stadString, fangelseString, fattighusString, personer);
 
         }
 
